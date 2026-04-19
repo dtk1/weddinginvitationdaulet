@@ -137,7 +137,7 @@ export function WeddingInvitationLetter({ revealed }: Props) {
 
         <p className="font-serif text-[0.98rem] font-semibold uppercase leading-[1.85] tracking-[0.12em] text-emerald-brand sm:text-[1.08rem] sm:tracking-[0.14em] md:text-[1.16rem]">
           Құрметті ағайын-туыс, бауырлар, құда-жекжат, 
-          нағашы-жиен, әпке-жезделер, бөлелер, дос-жарандар!
+          нағашы-жиен, апа-жезделер, бөлелер, дос-жарандар!
         </p>
 
         <div className="relative mx-auto my-12 w-full max-w-[min(100%,360px)] sm:my-14 md:max-w-md">
@@ -158,7 +158,7 @@ export function WeddingInvitationLetter({ revealed }: Props) {
           <span className="seal-monogram-text whitespace-nowrap normal-case font-serif text-[1.18rem] font-semibold tracking-normal sm:text-[1.34rem] md:text-[1.48rem]">
             Дәулет пен Гүлмираның
           </span>{" "}
-          шеңберлі тойына қонақ болуға шақырамыз.
+          үйлену тойына қонақ болуға шақырамыз.
         </p>
 
         <SealStyleMonogram />

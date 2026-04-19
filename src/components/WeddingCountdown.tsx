@@ -6,8 +6,8 @@ import { useEffect, useMemo, useState } from "react";
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
-/** 24 тамыз 2026, 19:00 — Астана уақыты (Қазақстан, UTC+5) */
-const WEDDING_UTC_MS = Date.parse("2026-08-24T19:00:00+05:00");
+/** 24 тамыз 2026, 18:00 — Астана уақыты (Қазақстан, UTC+5) */
+const WEDDING_UTC_MS = Date.parse("2026-08-24T18:00:00+05:00");
 
 const COUNTDOWN_BG =
   "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=2000&q=85";
@@ -117,7 +117,7 @@ export function WeddingCountdown({ revealed }: Props) {
               ))}
             </div>
             <p className="mt-10 font-serif text-lg font-medium text-cream-paper sm:text-xl [text-shadow:0_2px_14px_rgba(0,0,0,0.55),0_1px_3px_rgba(0,0,0,0.65)]">
-              24 тамыз 2026 · сағат 19:00 · Астана
+              24 тамыз 2026 · сағат 18:00 · Астана
             </p>
           </div>
         )}

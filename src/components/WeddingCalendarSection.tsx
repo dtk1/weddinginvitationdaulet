@@ -80,7 +80,7 @@ export function WeddingCalendarSection({ revealed }: Props) {
             24 ТАМЫЗ 2026 ЖЫЛ
           </p>
           <p className="mt-3 font-serif text-[1.12rem] font-semibold uppercase tracking-[0.19em] text-emerald-brand sm:text-[1.28rem] sm:tracking-[0.2em] md:text-[1.38rem]">
-            САҒАТ 19:00-ДЕ
+            САҒАТ 18:00-ДЕ
           </p>
 
           <div className="mx-auto mt-12 w-full max-w-[min(100%,560px)] sm:mt-14">
@@ -154,7 +154,7 @@ export function WeddingCalendarSection({ revealed }: Props) {
                 <address className="mt-4 font-serif text-[1.38rem] font-medium not-italic leading-relaxed text-emerald-brand sm:text-[1.52rem] md:text-[1.65rem]">
                   Туран даңғылы, 25
                   <br />
-                  Нура ауданы, Астана
+                  Астана қаласы, Нура ауданы
                 </address>
               </div>
 
