@@ -137,7 +137,7 @@ export function WeddingInvitationLetter({ revealed }: Props) {
 
         <p className="font-serif text-[0.98rem] font-semibold uppercase leading-[1.85] tracking-[0.12em] text-emerald-brand sm:text-[1.08rem] sm:tracking-[0.14em] md:text-[1.16rem]">
           Құрметті ағайын-туыс, бауырлар, құда-жекжат, 
-          нағашы-жиен, апа-жезделер, бөлелер, дос-жарандар!
+          нағашы-жиен, аға-жеңгелер, апа-жезделер, бөлелер, дос-жарандар!
         </p>
 
         <div className="relative mx-auto my-12 w-full max-w-[min(100%,360px)] sm:my-14 md:max-w-md">
