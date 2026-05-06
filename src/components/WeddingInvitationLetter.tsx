@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
-const SEAL_LETTER_FILL = "#ffffff" as const;
+const SEAL_LETTER_FILL = "#2f4f61" as const;
 
 /**
  * Монограмма D / G — те же сдвиги и повороты, что на WaxSeal (сургуч).
@@ -31,7 +31,7 @@ function SealStyleMonogram() {
               opacity={0.5}
             >
               <text
-                fill="#465767"
+                fill="#1f3440"
                 textAnchor="middle"
                 dominantBaseline="middle"
               >
@@ -43,7 +43,7 @@ function SealStyleMonogram() {
               opacity={0.5}
             >
               <text
-                fill="#465767"
+                fill="#1f3440"
                 textAnchor="middle"
                 dominantBaseline="middle"
               >
@@ -70,7 +70,7 @@ function SealStyleMonogram() {
             </g>
             <g
               fill="none"
-              stroke="rgba(70,87,103,0.24)"
+              stroke="rgba(227,242,252,0.36)"
               strokeWidth={0.35}
             >
               <text

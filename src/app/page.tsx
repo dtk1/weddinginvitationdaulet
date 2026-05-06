@@ -34,13 +34,18 @@ export default function Home() {
 
   const revealPhase = useMemo(() => (coverMounted ? 1 : 2), [coverMounted]);
 
+  function handleOpenInvitation() {
+    setOpened(true);
+    window.dispatchEvent(new Event("invitation-opened"));
+  }
+
   return (
     <main className="floral-frame relative min-h-screen overflow-x-hidden bg-cream-paper">
       {coverMounted && (
         <LetterIntro
           open={opened}
           prefersReducedMotion={prefersReducedMotion}
-          onOpen={() => setOpened(true)}
+          onOpen={handleOpenInvitation}
         />
       )}
       <WeddingHero revealPhase={revealPhase} />

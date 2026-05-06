@@ -13,7 +13,8 @@ const UNSPLASH =
   "/images/qyz-style-2.png";
 
 const AUDIO_SRC =
-  "https://dl.dropbox.com/scl/fi/x34vzvgqf5y43yojr6cuz/Algyt-Aq-Koilek.mp3?rlkey=zzmsqbgane5rs2xbohreq83k8&st=bu90qxfa&dl=1";
+  "/audio/pesnya.mp3";
+const AUDIO_START_SECONDS = 26;
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
@@ -71,9 +72,26 @@ export function WeddingHero({ revealPhase }: Props) {
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
-    if (playing) void a.play().catch(() => setPlaying(false));
+    if (playing) {
+      if (a.currentTime < AUDIO_START_SECONDS) a.currentTime = AUDIO_START_SECONDS;
+      void a.play().catch(() => setPlaying(false));
+    }
     else a.pause();
   }, [playing]);
+
+  useEffect(() => {
+    function handleInvitationOpened() {
+      const a = audioRef.current;
+      if (!a) return;
+      if (a.currentTime < AUDIO_START_SECONDS) a.currentTime = AUDIO_START_SECONDS;
+      void a.play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
+    }
+
+    window.addEventListener("invitation-opened", handleInvitationOpened);
+    return () => window.removeEventListener("invitation-opened", handleInvitationOpened);
+  }, []);
 
   return (
     <>
@@ -86,6 +104,12 @@ export function WeddingHero({ revealPhase }: Props) {
         src={AUDIO_SRC}
         preload="metadata"
         playsInline
+        onLoadedMetadata={(e) => {
+          const audio = e.currentTarget;
+          if (audio.currentTime < AUDIO_START_SECONDS) {
+            audio.currentTime = AUDIO_START_SECONDS;
+          }
+        }}
         onEnded={() => setPlaying(false)}
       />
 
