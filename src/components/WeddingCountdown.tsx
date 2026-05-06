@@ -6,11 +6,11 @@ import { useEffect, useMemo, useState } from "react";
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
-/** 24 тамыз 2026, 18:00 — Астана уақыты (Қазақстан, UTC+5) */
-const WEDDING_UTC_MS = Date.parse("2026-08-24T18:00:00+05:00");
+/** 18 тамыз 2026, 18:00 — Шымкент уақыты (Қазақстан, UTC+5) */
+const WEDDING_UTC_MS = Date.parse("2026-08-18T18:00:00+05:00");
 
 const COUNTDOWN_BG =
-  "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=2000&q=85";
+  "/images/qyz-style-3.png";
 
 function pad2(n: number) {
   return n.toString().padStart(2, "0");
@@ -35,14 +35,18 @@ type Props = {
  * Тойға дейін — скрипт + санауыш (күн / сағат / минут / секунд), стиль сайтпен үйлесімді.
  */
 export function WeddingCountdown({ revealed }: Props) {
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
+    setNow(Date.now());
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
   }, []);
 
-  const parts = useMemo(() => getParts(WEDDING_UTC_MS - now), [now]);
+  const parts = useMemo(
+    () => getParts(WEDDING_UTC_MS - (now ?? WEDDING_UTC_MS)),
+    [now],
+  );
 
   const cells = [
     { value: parts.days, label: "күн" },
@@ -61,7 +65,7 @@ export function WeddingCountdown({ revealed }: Props) {
           src={COUNTDOWN_BG}
           alt=""
           fill
-          className="object-cover object-[center_40%]"
+          className="object-cover object-[center_72%]"
           sizes="100vw"
           priority={false}
         />
@@ -85,7 +89,7 @@ export function WeddingCountdown({ revealed }: Props) {
           id="countdown-heading"
           className="font-script text-[clamp(2.35rem,6.4vw,3.55rem)] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]"
         >
-          Тойға дейін:
+          Қыз ұзату тойына дейін:
         </h2>
 
         {parts.done ? (
@@ -117,7 +121,7 @@ export function WeddingCountdown({ revealed }: Props) {
               ))}
             </div>
             <p className="mt-10 font-serif text-lg font-medium text-cream-paper sm:text-xl [text-shadow:0_2px_14px_rgba(0,0,0,0.55),0_1px_3px_rgba(0,0,0,0.65)]">
-              24 тамыз 2026 · сағат 18:00 · Астана
+              18 тамыз 2026 · сағат 18:00 · Шымкент
             </p>
           </div>
         )}

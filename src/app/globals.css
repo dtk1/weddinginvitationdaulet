@@ -3,18 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --emerald: #1a4d3a;
-  --gold: #c4a77d;
-  --cream: #fdfbf6;
+  --emerald: #2f4f61;
+  --gold: #b3dcfd;
+  --cream: #fbfeff;
 }
 
 body {
   @apply bg-cream-paper text-emerald-brand antialiased text-[1.125rem] leading-relaxed sm:text-[1.2rem] md:text-[1.28rem] lg:text-[1.35rem] md:leading-[1.65] lg:leading-[1.7];
+  background-image:
+    radial-gradient(1200px 520px at 12% -8%, rgba(209, 233, 249, 0.33), transparent 60%),
+    radial-gradient(820px 420px at 92% 6%, rgba(199, 227, 244, 0.28), transparent 62%),
+    radial-gradient(740px 420px at 50% 100%, rgba(224, 242, 252, 0.22), transparent 65%);
 }
 
 .paper-grain {
   background-color: var(--cream);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+.floral-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.floral-frame::before,
+.floral-frame::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 210px;
+  pointer-events: none;
+  opacity: 0.42;
+  background-image: url("/images/blue-flowers-sheet.png");
+  background-repeat: repeat-x;
+  background-size: 320px auto;
+  background-position: center top;
+}
+
+.floral-frame::before {
+  top: 0;
+}
+
+.floral-frame::after {
+  bottom: 0;
+  transform: none;
+  background-position: center bottom;
 }
 
 /* Тонкая анимация эквалайзера у кнопки «Музыка» */
@@ -46,19 +79,19 @@ body {
 .gold-metallic-text {
   background: linear-gradient(
     165deg,
-    #f0e4d2 0%,
-    #c4a77d 28%,
-    #9a7b58 52%,
-    #c4a77d 72%,
-    #dcc9a8 100%
+    #d7ecfa 0%,
+    #9ec4df 28%,
+    #5f89a8 52%,
+    #9ec4df 72%,
+    #dceffc 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 2px 3px rgba(26, 77, 58, 0.08));
+  filter: drop-shadow(0 1px 2px rgba(63, 95, 111, 0.16));
 }
 
 /** Сплошной цвет букв монограммы (без градиента) */
 .seal-monogram-text {
-  color: #5c4033;
+  color: #456983;
 }

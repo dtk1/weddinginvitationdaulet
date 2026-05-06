@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
-const SEAL_LETTER_FILL = "#5c4033" as const;
+const SEAL_LETTER_FILL = "#ffffff" as const;
 
 /**
  * Монограмма D / G — те же сдвиги и повороты, что на WaxSeal (сургуч).
@@ -28,10 +28,10 @@ function SealStyleMonogram() {
           >
             <g
               transform="translate(-16 -1) rotate(-9) translate(1.2 1.8)"
-              opacity={0.42}
+              opacity={0.5}
             >
               <text
-                fill="#1a0f08"
+                fill="#465767"
                 textAnchor="middle"
                 dominantBaseline="middle"
               >
@@ -40,10 +40,10 @@ function SealStyleMonogram() {
             </g>
             <g
               transform="translate(6 22) rotate(6) translate(1.2 1.8)"
-              opacity={0.42}
+              opacity={0.5}
             >
               <text
-                fill="#1a0f08"
+                fill="#465767"
                 textAnchor="middle"
                 dominantBaseline="middle"
               >
@@ -70,7 +70,7 @@ function SealStyleMonogram() {
             </g>
             <g
               fill="none"
-              stroke="rgba(255,252,247,0.35)"
+              stroke="rgba(70,87,103,0.24)"
               strokeWidth={0.35}
             >
               <text
@@ -97,7 +97,7 @@ function SealStyleMonogram() {
 
 /** Қол сақинасы — жұмсақ жиек (референстегідей) */
 const HANDS_IMAGE =
-  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=88";
+  "/images/qyz-style-4.png";
 
 const featherMask = {
   maskImage:
@@ -112,7 +112,7 @@ type Props = {
 
 /**
  * Қолхат тәрізді ресми шақыру: крем қағаз, капс антиква, скрипт аты, фото жұмсақ маска.
- * Мәтін — той иелері (ата-ана) тұрғысынан, сайттағы Дәулет пен Гүлмираға сәйкес.
+ * Мәтін — қыз ұзату тойына бейімделген ресми шақыру нұсқасы.
  */
 export function WeddingInvitationLetter({ revealed }: Props) {
   return (
@@ -136,8 +136,8 @@ export function WeddingInvitationLetter({ revealed }: Props) {
         </h2>
 
         <p className="font-serif text-[0.98rem] font-semibold uppercase leading-[1.85] tracking-[0.12em] text-emerald-brand sm:text-[1.08rem] sm:tracking-[0.14em] md:text-[1.16rem]">
-          Құрметті ағайын-туыс, бауырлар, құда-жекжат, 
-          нағашы-жиен, аға-жеңгелер, апа-жезделер, бөлелер, дос-жарандар!
+          Құрметті ағайын-туыс, бауырлар, құда-жекжат,
+          нағашы-жиен, аға-жеңгелер, апке-жезделер, бөлелер, дос-жарандар!
         </p>
 
         <div className="relative mx-auto my-12 w-full max-w-[min(100%,360px)] sm:my-14 md:max-w-md">
@@ -146,7 +146,7 @@ export function WeddingInvitationLetter({ revealed }: Props) {
               src={HANDS_IMAGE}
               alt=""
               fill
-              className="object-cover object-[center_42%]"
+              className="object-cover object-[center_78%]"
               sizes="(max-width: 768px) 90vw, 420px"
               style={featherMask}
             />
@@ -156,9 +156,9 @@ export function WeddingInvitationLetter({ revealed }: Props) {
         <p className="font-serif text-[0.98rem] font-semibold uppercase leading-[1.85] tracking-[0.12em] text-emerald-brand sm:text-[1.08rem] sm:tracking-[0.14em] md:text-[1.16rem]">
           Сіздерді асылдарымыз{" "}
           <span className="seal-monogram-text whitespace-nowrap normal-case font-serif text-[1.18rem] font-semibold tracking-normal sm:text-[1.34rem] md:text-[1.48rem]">
-            Дәулет пен Гүлмираның
+            Гүлмираның
           </span>{" "}
-          үйлену тойына қонақ болуға шақырамыз.
+          қыз ұзату тойына қонақ болуға шақырамыз.
         </p>
 
         <SealStyleMonogram />

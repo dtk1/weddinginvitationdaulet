@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        emerald: { brand: "#1A4D3A" },
-        gold: { brand: "#C4A77D", hi: "#f0e4d2", deep: "#9a7b58" },
-        cream: { paper: "#FDFBF6" },
+        emerald: { brand: "#2F4F61" },
+        gold: { brand: "#B3DCFD", hi: "#F4FBFF", deep: "#5D86A3" },
+        cream: { paper: "#FBFEFF" },
         /** Бордо для акцентных заголовков (как на референсе календаря) */
         wine: { DEFAULT: "#6B2D35", muted: "#5c2830" },
       },

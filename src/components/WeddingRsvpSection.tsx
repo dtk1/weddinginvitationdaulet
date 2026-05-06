@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 
 const soft = [0.25, 0.1, 0.25, 1] as const;
 
-const RSVP_EMAIL = process.env.NEXT_PUBLIC_RSVP_EMAIL ?? "";
-
 type Party = "alone" | "spouse" | "";
 
 type Props = {
@@ -23,6 +21,8 @@ export function WeddingRsvpSection({ revealed }: Props) {
   const [spouseName, setSpouseName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     if (!successModalOpen) return;
@@ -59,34 +59,38 @@ export function WeddingRsvpSection({ revealed }: Props) {
     return true;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit()) return;
+    if (!canSubmit() || isSubmitting) return;
 
-    const attendanceText =
-      attend === "yes" ? "Қатысамын" : "Қатыса алмаймын";
+    setSubmitError("");
+    setIsSubmitting(true);
 
-    const lines = [`Аты-жөні: ${name.trim()}`, `Қатысу: ${attendanceText}`];
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          attend,
+          party: attend === "yes" ? party : "",
+          spouseName: attend === "yes" && party === "spouse" ? spouseName.trim() : "",
+        }),
+      });
 
-    if (attend === "yes" && party) {
-      const partyLabel =
-        party === "alone" ? "Жалғыз келемін" : "Жұбайымен келемін";
-      lines.push(`Келу түрі: ${partyLabel}`);
-      if (party === "spouse") {
-        lines.push(`Жұбайыңыздың есімі: ${spouseName.trim()}`);
+      if (!response.ok) {
+        throw new Error("Failed to submit RSVP");
       }
+
+      setSubmitted(true);
+      setSuccessModalOpen(true);
+    } catch {
+      setSubmitError("Жіберу сәтсіз аяқталды. Қайтадан көріңіз.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    const body = lines.join("\n");
-
-    if (RSVP_EMAIL) {
-      const subject = encodeURIComponent("Тойға қатысу — растау");
-      const mailBody = encodeURIComponent(body);
-      window.location.href = `mailto:${RSVP_EMAIL}?subject=${subject}&body=${mailBody}`;
-    }
-
-    setSubmitted(true);
-    setSuccessModalOpen(true);
   }
 
   function closeSuccessModal() {
@@ -95,11 +99,21 @@ export function WeddingRsvpSection({ revealed }: Props) {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-emerald-brand/[0.08] bg-[#f7f5f0] px-5 py-16 sm:px-8 sm:py-20"
+      className="relative overflow-hidden border-t border-emerald-brand/[0.12] bg-[#f3fbff] px-5 py-16 sm:px-8 sm:py-20"
       aria-labelledby="rsvp-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 paper-grain opacity-[0.55]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.28]"
+        style={{
+          backgroundImage: 'url("/images/blue-flowers-sheet.png")',
+          backgroundRepeat: "repeat",
+          backgroundSize: "300px auto",
+          backgroundPosition: "center center",
+        }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-[#f8fdff]/82"
         aria-hidden
       />
       <AnimatePresence>
@@ -155,9 +169,7 @@ export function WeddingRsvpSection({ revealed }: Props) {
                 Тіркелу сәтті аяқталды!
               </h3>
               <p className="mt-4 font-serif text-lg leading-relaxed text-emerald-brand/80 sm:text-xl">
-                {RSVP_EMAIL
-                  ? "Пошта қолданбасы ашылса, хатты жіберуді растаңыз."
-                  : "Деректеріңіз қабылданды. Тойда кездескенше!"}
+                Деректеріңіз қабылданды. Тойда кездескенше!
               </p>
               <button
                 type="button"
@@ -172,7 +184,7 @@ export function WeddingRsvpSection({ revealed }: Props) {
       </AnimatePresence>
 
       <motion.div
-        className="relative mx-auto max-w-xl text-center md:max-w-2xl"
+        className="relative z-[2] mx-auto max-w-xl text-center md:max-w-2xl"
         initial={false}
         animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
         transition={{ duration: 0.95, ease: soft, delay: revealed ? 0.06 : 0 }}
@@ -199,7 +211,7 @@ export function WeddingRsvpSection({ revealed }: Props) {
           </p>
         ) : !submitted ? (
           <form
-            className="mx-auto mt-10 flex max-w-lg flex-col items-center gap-8"
+            className="mx-auto mt-10 flex max-w-lg flex-col items-center gap-8 rounded-[2rem] border border-[#c8deee] bg-white/96 px-5 py-7 shadow-[0_10px_28px_rgba(122,162,188,0.14)] sm:px-7 sm:py-8"
             onSubmit={handleSubmit}
             noValidate
           >
@@ -227,7 +239,7 @@ export function WeddingRsvpSection({ revealed }: Props) {
                   checked={attend === "yes"}
                   onChange={() => handleAttendChange("yes")}
                   className="h-5 w-5 shrink-0 border-emerald-brand text-emerald-brand focus:ring-gold-brand/40"
-                  style={{ accentColor: "#1A4D3A" }}
+                  style={{ accentColor: "#3F5F6F" }}
                 />
                 Қатысамын
               </label>
@@ -239,7 +251,7 @@ export function WeddingRsvpSection({ revealed }: Props) {
                   checked={attend === "no"}
                   onChange={() => handleAttendChange("no")}
                   className="h-5 w-5 shrink-0 border-emerald-brand text-emerald-brand focus:ring-gold-brand/40"
-                  style={{ accentColor: "#1A4D3A" }}
+                  style={{ accentColor: "#3F5F6F" }}
                 />
                 Қатыса алмаймын
               </label>
@@ -324,19 +336,15 @@ export function WeddingRsvpSection({ revealed }: Props) {
 
             <button
               type="submit"
-              disabled={!canSubmit()}
-              className="w-full max-w-sm rounded-full border-2 border-gold-brand bg-emerald-brand px-8 py-4 font-serif text-lg font-semibold uppercase tracking-[0.16em] text-cream-paper shadow-sm transition hover:border-gold-hi hover:bg-emerald-brand/95 disabled:cursor-not-allowed disabled:opacity-45 sm:text-xl"
+              disabled={!canSubmit() || isSubmitting}
+              className="w-full max-w-sm rounded-full border-2 border-[#8DBFE4] bg-[#4E7FA0] px-8 py-4 font-serif text-lg font-bold uppercase tracking-[0.13em] text-white shadow-[0_10px_26px_rgba(78,127,160,0.35)] transition duration-300 hover:border-[#A9D3F0] hover:bg-[#447493] hover:shadow-[0_12px_28px_rgba(78,127,160,0.42)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B3DCFD] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3fbff] disabled:cursor-not-allowed disabled:opacity-45 sm:text-xl"
             >
-              Жіберу
+              {isSubmitting ? "Жіберілуде..." : "Жіберу"}
             </button>
 
-            {!RSVP_EMAIL ? (
-              <p className="font-serif text-base leading-relaxed text-emerald-brand/55 sm:text-lg">
-                Пошта арқылы жіберу үшін жобаға{" "}
-                <code className="rounded bg-emerald-brand/10 px-1 py-0.5 text-[0.88rem] sm:text-[0.95rem]">
-                  NEXT_PUBLIC_RSVP_EMAIL
-                </code>{" "}
-                орнатыңыз.
+            {submitError ? (
+              <p className="font-serif text-base leading-relaxed text-red-700 sm:text-lg" role="alert">
+                {submitError}
               </p>
             ) : null}
           </form>

@@ -10,7 +10,7 @@ import { WeddingInvitationLetter } from "@/components/WeddingInvitationLetter";
 import { WeddingRsvpSection } from "@/components/WeddingRsvpSection";
 
 const UNSPLASH =
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85";
+  "/images/qyz-style-2.png";
 
 const AUDIO_SRC =
   "https://dl.dropbox.com/scl/fi/x34vzvgqf5y43yojr6cuz/Algyt-Aq-Koilek.mp3?rlkey=zzmsqbgane5rs2xbohreq83k8&st=bu90qxfa&dl=1";
@@ -107,11 +107,15 @@ export function WeddingHero({ revealPhase }: Props) {
             alt=""
             fill
             priority
-            className="object-cover object-[center_35%]"
+            className="object-cover object-[center_72%]"
             sizes="100vw"
           />
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[min(120px,18vw)] bg-gradient-to-b from-transparent via-cream-paper/40 to-cream-paper"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#e4f4ff]/40 via-[#eaf7ff]/18 to-transparent"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[min(120px,18vw)] bg-gradient-to-b from-transparent via-cream-paper/55 to-cream-paper"
             style={{
               maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,40 Q75,52 150,38 T300,42 T450,35 T600,44 T750,36 T900,43 T1050,38 T1200,45 L1200,80 L0,80 Z'/%3E%3C/svg%3E")`,
               WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,40 Q75,52 150,38 T300,42 T450,35 T600,44 T750,36 T900,43 T1050,38 T1200,45 L1200,80 L0,80 Z'/%3E%3C/svg%3E")`,
@@ -163,7 +167,7 @@ export function WeddingHero({ revealPhase }: Props) {
             variants={itemFade}
             className="mb-5 font-serif text-[1.02rem] font-medium uppercase tracking-[0.24em] text-emerald-brand sm:text-[1.15rem] md:text-[1.3rem]"
           >
-            WEDDING DAY
+            ҚЫЗ ҰЗАТУ
           </motion.p>
 
           <motion.div
@@ -229,7 +233,7 @@ export function WeddingHero({ revealPhase }: Props) {
             variants={itemFade}
             className="text-[clamp(1.45rem,4.2vw,2rem)] font-medium tracking-[0.2em] text-emerald-brand"
           >
-            24 &nbsp;|&nbsp; 08 &nbsp;|&nbsp; 2026
+            18 &nbsp;|&nbsp; 08 &nbsp;|&nbsp; 2026
           </motion.p>
         </motion.div>
       </motion.div>
@@ -257,7 +261,7 @@ export function WeddingHero({ revealPhase }: Props) {
         type="button"
         aria-label={playing ? "Музыканы тоқтату" : "Музыканы қосу"}
         onClick={() => setPlaying((p) => !p)}
-        className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border border-gold-brand bg-[#1A4D3A] text-gold-brand shadow-[0_6px_24px_rgba(26,77,58,0.28)] transition duration-300 hover:shadow-[0_8px_28px_rgba(26,77,58,0.34)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-brand/45 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-paper active:scale-[0.97]"
+        className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border border-gold-brand bg-[#4d6c7a] text-gold-hi shadow-[0_6px_24px_rgba(77,108,122,0.3)] transition duration-300 hover:shadow-[0_8px_28px_rgba(77,108,122,0.36)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-brand/45 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-paper active:scale-[0.97]"
       >
         {playing ? (
           <MusicEqualizer />

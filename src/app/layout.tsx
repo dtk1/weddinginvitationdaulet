@@ -47,8 +47,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Дәулет & Гүлмира — Wedding Day",
-  description: "24.08.2026",
+  title: "Қыз ұзату — Korkem Hall",
+  description: "18.08.2026 · 18:00",
 };
 
 export default function RootLayout({

@@ -17,27 +17,31 @@ const COVER_DURATION_MS = {
 
 export default function Home() {
   const [coverMounted, setCoverMounted] = useState(true);
+  const [opened, setOpened] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useLayoutEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
-
-    const ms = mq.matches ? COVER_DURATION_MS.reduced : COVER_DURATION_MS.full;
-    const unmount = window.setTimeout(() => setCoverMounted(false), ms);
-
-    return () => {
-      window.clearTimeout(unmount);
-    };
   }, []);
 
-  /** Пока оверлей есть — считаем приглашение уже «включённым» (hero под зелёным) */
+  useLayoutEffect(() => {
+    if (!opened) return;
+    const ms = prefersReducedMotion ? COVER_DURATION_MS.reduced : COVER_DURATION_MS.full;
+    const unmount = window.setTimeout(() => setCoverMounted(false), ms);
+    return () => window.clearTimeout(unmount);
+  }, [opened, prefersReducedMotion]);
+
   const revealPhase = useMemo(() => (coverMounted ? 1 : 2), [coverMounted]);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-cream-paper">
+    <main className="floral-frame relative min-h-screen overflow-x-hidden bg-cream-paper">
       {coverMounted && (
-        <LetterIntro open prefersReducedMotion={prefersReducedMotion} />
+        <LetterIntro
+          open={opened}
+          prefersReducedMotion={prefersReducedMotion}
+          onOpen={() => setOpened(true)}
+        />
       )}
       <WeddingHero revealPhase={revealPhase} />
     </main>

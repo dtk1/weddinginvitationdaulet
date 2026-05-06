@@ -7,8 +7,8 @@ const soft = [0.25, 0.1, 0.25, 1] as const;
 /** Дүйсенбіден басталады: ДС … ЖБ */
 const WEEKDAYS_KK = ["ДС", "СС", "СР", "БС", "ЖМ", "СБ", "ЖБ"] as const;
 
-const GIS_ROYAL_BALLROOM =
-  "https://2gis.kz/astana/geo/70000001089235215" as const;
+const GIS_KORKEM_HALL =
+  "https://2gis.kz/shymkent/geo/70000001027767901/69.574970,42.365231" as const;
 
 function mondayOffsetFromSundayJs(day: number) {
   return (day + 6) % 7;
@@ -50,11 +50,11 @@ type Props = {
 };
 
 /**
- * Тамыз 2026, 24 — дүйсенбі; палитра изумруд / золото как на hero.
+ * Тамыз 2026, 18 — сейсенбі; палитра изумруд / золото как на hero.
  */
 export function WeddingCalendarSection({ revealed }: Props) {
   const cells = buildMonthGrid(2026, 7);
-  const highlightDay = 24;
+  const highlightDay = 18;
 
   return (
     <section
@@ -73,11 +73,11 @@ export function WeddingCalendarSection({ revealed }: Props) {
             id="ceremony-calendar-heading"
             className="gold-metallic-text font-script text-[clamp(2.85rem,8vw,4.1rem)] leading-tight"
           >
-            Той салтанаты:
+            Қыз ұзату тойы:
           </h2>
 
           <p className="mt-6 font-serif text-[1.12rem] font-semibold uppercase leading-relaxed tracking-[0.19em] text-emerald-brand sm:mt-7 sm:text-[1.28rem] sm:tracking-[0.2em] md:text-[1.38rem]">
-            24 ТАМЫЗ 2026 ЖЫЛ
+            18 ТАМЫЗ 2026 ЖЫЛ
           </p>
           <p className="mt-3 font-serif text-[1.12rem] font-semibold uppercase tracking-[0.19em] text-emerald-brand sm:text-[1.28rem] sm:tracking-[0.2em] md:text-[1.38rem]">
             САҒАТ 18:00-ДЕ
@@ -137,7 +137,7 @@ export function WeddingCalendarSection({ revealed }: Props) {
                 Той өтетін орын
               </p>
               <h3 className="mt-6 text-center font-script text-[clamp(2.75rem,9vw,4.15rem)] font-normal leading-[1.05] sm:mt-7 sm:text-[3.35rem] md:text-[3.85rem]">
-                Royal Ballroom
+                Korkem Hall
               </h3>
               <p className="mt-3 text-center font-serif text-xl text-emerald-brand/75 sm:text-2xl">
                 Банкет залы
@@ -152,15 +152,15 @@ export function WeddingCalendarSection({ revealed }: Props) {
                   Мекенжай
                 </p>
                 <address className="mt-4 font-serif text-[1.38rem] font-medium not-italic leading-relaxed text-emerald-brand sm:text-[1.52rem] md:text-[1.65rem]">
-                  Туран даңғылы, 25
+                  Арғынбеков көшесі, 31
                   <br />
-                  Астана қаласы, Нура ауданы
+                  Шымкент қаласы
                 </address>
               </div>
 
               <div className="mt-9 flex flex-col items-center sm:mt-10">
                 <a
-                  href={GIS_ROYAL_BALLROOM}
+                  href={GIS_KORKEM_HALL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full max-w-md items-center justify-center gap-2.5 rounded-full border-2 border-gold-brand bg-emerald-brand px-6 py-4 text-center font-serif text-[1.12rem] font-semibold uppercase tracking-[0.12em] text-cream-paper shadow-sm transition hover:border-gold-hi hover:bg-emerald-brand/95 sm:gap-3 sm:px-7 sm:text-xl md:py-[1.25rem] md:text-[1.22rem]"

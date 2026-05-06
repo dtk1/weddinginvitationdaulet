@@ -42,13 +42,18 @@ export function WeddingHostsSection({ revealed }: Props) {
           >
             Құрметпен, той иелері:
           </h2>
-          <div className="mt-8 space-y-3 text-center sm:mt-10 sm:space-y-3.5">
-            <p className="font-logo text-[clamp(1.68rem,4.9vw,2.35rem)] font-bold uppercase leading-[1.15] tracking-[0.15em] text-emerald-brand sm:tracking-[0.17em]">
-              Қайыржан
+          <div className="mt-8 text-center sm:mt-10">
+            <div className="mx-auto mb-5 h-px w-28 bg-gradient-to-r from-transparent via-gold-brand/55 to-transparent sm:mb-6" aria-hidden />
+            <p className="font-script text-[clamp(2.4rem,7vw,3.25rem)] leading-none text-emerald-brand">
+              Полат
             </p>
-            <p className="font-logo text-[clamp(1.68rem,4.9vw,2.35rem)] font-bold uppercase leading-[1.15] tracking-[0.15em] text-emerald-brand sm:tracking-[0.17em]">
-              Нұргүл
+            <p className="mt-3 font-serif text-[0.95rem] font-semibold uppercase tracking-[0.22em] text-gold-deep/85 sm:text-[1rem]">
+              &
             </p>
+            <p className="mt-2 font-script text-[clamp(2.4rem,7vw,3.25rem)] leading-none text-emerald-brand">
+              Умида
+            </p>
+            <div className="mx-auto mt-6 h-px w-28 bg-gradient-to-r from-transparent via-gold-brand/55 to-transparent" aria-hidden />
           </div>
         </motion.div>
       </div>
