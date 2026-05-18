@@ -146,7 +146,7 @@ export function WeddingInvitationLetter({ revealed }: Props) {
               src={HANDS_IMAGE}
               alt=""
               fill
-              className="object-cover object-[center_78%]"
+              className="object-cover object-[center_78%] scale-[1.12]"
               sizes="(max-width: 768px) 90vw, 420px"
               style={featherMask}
             />
@@ -154,11 +154,11 @@ export function WeddingInvitationLetter({ revealed }: Props) {
         </div>
 
         <p className="font-serif text-[0.98rem] font-semibold uppercase leading-[1.85] tracking-[0.12em] text-emerald-brand sm:text-[1.08rem] sm:tracking-[0.14em] md:text-[1.16rem]">
-          Сіздерді асылдарымыз{" "}
-          <span className="seal-monogram-text whitespace-nowrap normal-case font-serif text-[1.18rem] font-semibold tracking-normal sm:text-[1.34rem] md:text-[1.48rem]">
+          Сіздерді қызымыз {" "}
+          <span className="text-wine whitespace-nowrap normal-case font-serif text-[1.18rem] font-semibold tracking-normal sm:text-[1.34rem] md:text-[1.48rem]">
             Гүлмираның
           </span>{" "}
-          қыз ұзату тойына қонақ болуға шақырамыз.
+          ұзату тойына қонақ болуға шақырамыз.
         </p>
 
         <SealStyleMonogram />
