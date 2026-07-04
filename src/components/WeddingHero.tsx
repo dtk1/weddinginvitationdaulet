@@ -201,10 +201,10 @@ export function WeddingHero({ revealPhase }: Props) {
                   transition: { staggerChildren: 0.14, delayChildren: 0.05 },
                 },
               }}
-              className="mb-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1"
+              className="mb-5 flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-y-0 sm:gap-x-3"
             >
               <motion.span
-                className="gold-metallic-text font-script text-[clamp(3.55rem,12.5vw,6rem)] leading-none"
+                className="gold-metallic-text font-script text-[clamp(3.55rem,12.5vw,6rem)] leading-[1.15] py-2 inline-block"
                 variants={{
                   hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
                   show: {
@@ -238,7 +238,7 @@ export function WeddingHero({ revealPhase }: Props) {
                 </svg>
               </motion.span>
               <motion.span
-                className="gold-metallic-text font-script text-[clamp(3.55rem,12.5vw,6rem)] leading-none"
+                className="gold-metallic-text font-script text-[clamp(3.55rem,12.5vw,6rem)] leading-[1.15] py-2 inline-block"
                 variants={{
                   hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
                   show: {
