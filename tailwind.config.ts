@@ -17,7 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-lora)", "Georgia", "serif"],
-        script: ["var(--font-great-vibes)", "cursive"],
+        script: ["'Great Vibes'", "cursive"],
         calendar: ["var(--font-manrope)", "system-ui", "sans-serif"],
         logo: ["var(--font-playfair)", "var(--font-lora)", "Georgia", "serif"],
       },

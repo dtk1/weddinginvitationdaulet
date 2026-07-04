@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Great_Vibes,
   Lora,
   Manrope,
   Playfair_Display,
@@ -12,15 +11,6 @@ const lora = Lora({
   subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-lora",
-  display: "swap",
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-great-vibes",
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -59,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="kk"
-      className={`${lora.variable} ${greatVibes.variable} ${manrope.variable} ${playfair.variable}`}
+      className={`${lora.variable} ${manrope.variable} ${playfair.variable}`}
     >
       <body className="font-serif">{children}</body>
     </html>
