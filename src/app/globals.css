@@ -3,51 +3,30 @@
 /* 1. Фикс для обычного (прямого) текста */
 @font-face {
   font-family: 'KazakhLettersFix';
-  src: 
-    local('system-ui'), 
-    local('-apple-system'), 
-    local('BlinkMacSystemFont'), 
-    local('Roboto'), 
-    local('Helvetica Neue'), 
-    local('Arial'), 
-    local('sans-serif');
+  src: url('https://fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmZiAr0klQmz24O0g.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
-  size-adjust: 85%;
+  size-adjust: 82%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
 /* 2. Фикс для курсивного текста (системные курсивные шрифты) */
 @font-face {
   font-family: 'KazakhLettersFix';
-  src: 
-    local('system-ui-italic'), 
-    local('Roboto Italic'), 
-    local('Roboto-Italic'), 
-    local('Helvetica Neue Italic'), 
-    local('Arial Italic'), 
-    local('Arial-Italic'), 
-    local('sans-serif-italic');
+  src: url('https://fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLoHQuAX-k3Yi128m0kN2.woff2') format('woff2');
   font-weight: 100 900;
   font-style: italic;
-  size-adjust: 85%;
+  size-adjust: 82%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
 /* 3. Фикс для каллиграфического шрифта (принудительный наклон при нормальном начертании) */
 @font-face {
   font-family: 'KazakhLettersFixScript';
-  src: 
-    local('system-ui-italic'), 
-    local('Roboto Italic'), 
-    local('Roboto-Italic'), 
-    local('Helvetica Neue Italic'), 
-    local('Arial Italic'), 
-    local('Arial-Italic'), 
-    local('sans-serif-italic');
+  src: url('https://fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLoHQuAX-k3Yi128m0kN2.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
-  size-adjust: 85%;
+  size-adjust: 80%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
