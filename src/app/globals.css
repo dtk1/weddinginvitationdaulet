@@ -13,6 +13,7 @@
     local('sans-serif');
   font-weight: 100 900;
   font-style: normal;
+  size-adjust: 85%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
@@ -29,6 +30,7 @@
     local('sans-serif-italic');
   font-weight: 100 900;
   font-style: italic;
+  size-adjust: 85%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
@@ -45,6 +47,7 @@
     local('sans-serif-italic');
   font-weight: 100 900;
   font-style: normal;
+  size-adjust: 85%;
   unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
 }
 
