@@ -9,7 +9,7 @@ import "./globals.css";
 
 /** Тёплая антиква — основной текст; хорошо дружит со скриптом Great Vibes */
 const lora = Lora({
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-lora",
   display: "swap",
@@ -28,7 +28,7 @@ const greatVibes = Great_Vibes({
 
 /** Мягкий гротеск для цифр и календаря — не «холодный», как чистый геометрический sans */
 const manrope = Manrope({
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["500", "600", "700"],
   variable: "--font-manrope",
   display: "swap",
