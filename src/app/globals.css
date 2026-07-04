@@ -1,5 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+/* 1. Фикс для обычного (прямого) текста */
+@font-face {
+  font-family: 'KazakhLettersFix';
+  src: 
+    local('system-ui'), 
+    local('-apple-system'), 
+    local('BlinkMacSystemFont'), 
+    local('Roboto'), 
+    local('Helvetica Neue'), 
+    local('Arial'), 
+    local('sans-serif');
+  font-weight: 100 900;
+  font-style: normal;
+  unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
+}
+
+/* 2. Фикс для курсивного текста (системные курсивные шрифты) */
+@font-face {
+  font-family: 'KazakhLettersFix';
+  src: 
+    local('system-ui-italic'), 
+    local('Roboto Italic'), 
+    local('Roboto-Italic'), 
+    local('Helvetica Neue Italic'), 
+    local('Arial Italic'), 
+    local('Arial-Italic'), 
+    local('sans-serif-italic');
+  font-weight: 100 900;
+  font-style: italic;
+  unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
+}
+
+/* 3. Фикс для каллиграфического шрифта (принудительный наклон при нормальном начертании) */
+@font-face {
+  font-family: 'KazakhLettersFixScript';
+  src: 
+    local('system-ui-italic'), 
+    local('Roboto Italic'), 
+    local('Roboto-Italic'), 
+    local('Helvetica Neue Italic'), 
+    local('Arial Italic'), 
+    local('Arial-Italic'), 
+    local('sans-serif-italic');
+  font-weight: 100 900;
+  font-style: normal;
+  unicode-range: U+0406, U+0456, U+0492-0493, U+049A-049B, U+04A2-04A3, U+04B0-04B1, U+04AE-04AF, U+04D8-04D9, U+04E8-04E9, U+04BA-04BB;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
