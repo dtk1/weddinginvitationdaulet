@@ -18,7 +18,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-lora)", "'KazakhLettersFix'", "Georgia", "serif"],
         script: ["'KazakhLettersFixScript'", "'Great Vibes'", "cursive"],
-        calendar: ["var(--font-manrope)", "'KazakhLettersFix'", "system-ui", "sans-serif"],
+        calendar: ["var(--font-manrope)", "system-ui", "sans-serif"],
         logo: ["var(--font-playfair)", "'KazakhLettersFix'", "var(--font-lora)", "Georgia", "serif"],
       },
     },
