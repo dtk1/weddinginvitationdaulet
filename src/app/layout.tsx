@@ -10,6 +10,7 @@ import "./globals.css";
 const lora = Lora({
   subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-lora",
   display: "swap",
   preload: true,
